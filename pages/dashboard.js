@@ -1,3 +1,12 @@
+import Head from "next/head";
+
 export default function Dashboard() {
-  return <h1>Dashboard</h1>;
+  return (
+    <>
+      <Head>
+        <title>Plant Tracker</title>
+        <h1>Dashboard</h1>
+      </Head>
+    </>
+  );
 }
