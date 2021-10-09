@@ -1,9 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Neucha&family=Ranchers&display=swap");
+
+:root {
+  --neutral-black: #050506;
+  --neutral-white: #fff;
+  --neutral-50: #f4faff;
+  --neutral-100: #cbd7e0;
+  --neutral-200: #819eb3;
+  --neutral-300: #6186a0;
+  --neutral-400: #476376;
+  --neutral-500: #344856;
+  --neutral-600: #212d36;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Neucha", cursive;
 }
 
 a {
