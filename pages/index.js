@@ -2,10 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import Layout from "../components/layout";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <Layout className={styles.container}>
       <Head>
         <title>Banana Bingo</title>
         <meta name="description" content="Plant tracking game for kids" />
@@ -24,6 +25,6 @@ export default function Home() {
           <a>Game</a>
         </Link>
       </main>
-    </div>
+    </Layout>
   );
 }
