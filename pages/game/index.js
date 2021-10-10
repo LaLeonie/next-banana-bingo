@@ -7,9 +7,12 @@ export const getStaticProps = async () => {
   );
 
   const data = await res.json();
-  console.log("api response", data);
+
+  //select 25 random plants from API data
+  const randomData = data.records.sort(() => 0.5 - Math.random()).slice(0, 25);
+
   return {
-    props: { plants: data },
+    props: { plants: randomData },
   };
 };
 
