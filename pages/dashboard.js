@@ -5,8 +5,8 @@ export default function Dashboard() {
     <>
       <Head>
         <title>Plant Tracker</title>
-        <h1>Dashboard</h1>
       </Head>
+      <h1>Dashboard</h1>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 
 export const getStaticProps = async () => {
   const res = await fetch(
@@ -24,6 +25,21 @@ export default function Game({ plants }) {
         <title>The Game</title>
       </Head>
       <h1>Game Page</h1>
+      <ul>
+        {plants &&
+          plants.map((plant, i) => (
+            <li key={plant.id} id={i}>
+              {plant.fields.Name}
+              <Image
+                src={plant.fields.Image[0].url}
+                alt={plant.fields.Name}
+                width={85}
+                height={85}
+              />
+            </li>
+          ))}
+      </ul>
+
       <Link href="/tracker">
         <a>Add Plants</a>
       </Link>
