@@ -105,3 +105,8 @@ button {
   font-size: 1rem;
   font-weight: 700;
 }
+
+.button-icon {
+  min-width: 52px;
+  width: 52px;
+}

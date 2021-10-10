@@ -13,11 +13,11 @@ export default function Navbar({ children }) {
     <div className="navbar">
       <div className="button-container">
         <Link href="/" passHref>
-          <button>
+          <button className="button-icon">
             <FontAwesomeIcon icon={faHome} />
           </button>
         </Link>
-        <button onClick={() => router.back()}>
+        <button onClick={() => router.back()} className="button-icon">
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
       </div>
@@ -27,7 +27,7 @@ export default function Navbar({ children }) {
           <button>Dashboard</button>
         </Link>
         <Link href="/info" passHref>
-          <button>
+          <button className="button-icon">
             <FontAwesomeIcon icon={faQuestion} />
           </button>
         </Link>
