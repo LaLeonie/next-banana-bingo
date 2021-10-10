@@ -19,7 +19,6 @@ export const getStaticProps = async () => {
 };
 
 export default function Game({ plants }) {
-  console.log(plants);
   return (
     <>
       <Head>
