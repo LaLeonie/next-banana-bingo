@@ -1,0 +1,22 @@
+.game_board {
+  z-index: 0;
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: repeat(5, 85px);
+  grid-template-rows: repeat(5, 85px);
+  padding: 0;
+}
+
+.game_field {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  justify-content: center;
+  list-style-type: none;
+  background: rgba(244, 250, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
