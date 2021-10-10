@@ -11,7 +11,7 @@ export default function Navbar({ children }) {
   const router = useRouter();
   return (
     <div className="navbar">
-      <div>
+      <div className="button-container">
         <Link href="/" passHref>
           <button>
             <FontAwesomeIcon icon={faHome} />
@@ -22,7 +22,7 @@ export default function Navbar({ children }) {
         </button>
       </div>
       <p>Banana Bingo</p>
-      <div>
+      <div className="button-container">
         <Link href="/dashboard" passHref>
           <button>Dashboard</button>
         </Link>

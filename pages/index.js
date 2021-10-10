@@ -15,14 +15,9 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Banana Bingo</h1>
-        <Link href="/info">
-          <a>How to Play?</a>
-        </Link>
-        <Link href="/dashboard">
-          <a>Dashboard</a>
-        </Link>
-        <Link href="/game">
-          <a>Game</a>
+
+        <Link href="/game" passHref>
+          <button>Let's Play</button>
         </Link>
       </main>
     </>
