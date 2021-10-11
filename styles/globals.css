@@ -37,11 +37,11 @@ a {
   box-sizing: border-box;
 }
 
+/* Navigation Bar  */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
   margin-top: 0;
   width: 100%;
 }
@@ -50,6 +50,16 @@ a {
   justify-content: right;
 }
 
+.navbar-game {
+  justify-content: space-between;
+}
+
+.navbar h1 {
+  font-size: 2.6rem;
+  color: #344856;
+}
+
+/* Content */
 .content {
   display: flex;
   flex-direction: column;
@@ -113,4 +123,17 @@ button {
 .button-icon {
   min-width: 52px;
   width: 52px;
+}
+
+.button--primary {
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #84aefe 0,
+    #005adf 100%
+  );
+  border: 0;
+  border-radius: 16px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, #005adf 0 7px 13px -3px,
+    #012261 0 -3px 0 inset;
+  color: #fff;
 }

@@ -23,7 +23,7 @@ export default function Home() {
         <div className="button-container">
           <button onClick={() => setShowSettings(true)}>Settings</button>
           <Link href="/game" passHref>
-            <button>Let's Play</button>
+            <button className="button--primary">Let's Play</button>
           </Link>
         </div>
       </main>
