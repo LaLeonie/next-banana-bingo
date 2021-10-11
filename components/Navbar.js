@@ -7,10 +7,24 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import router, { useRouter } from "next/router";
 
-export default function Navbar({ children }) {
-  const router = useRouter();
+const StartNavbar = () => {
   return (
-    <div className="navbar">
+    <div className="button-container">
+      <Link href="/dashboard" passHref>
+        <button>Dashboard</button>
+      </Link>
+      <Link href="/info" passHref>
+        <button className="button-icon">
+          <FontAwesomeIcon icon={faQuestion} />
+        </button>
+      </Link>
+    </div>
+  );
+};
+
+const GameNavbar = () => {
+  return (
+    <>
       <div className="button-container">
         <Link href="/" passHref>
           <button className="button-icon">
@@ -21,17 +35,19 @@ export default function Navbar({ children }) {
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
       </div>
-      <p>Banana Bingo</p>
-      <div className="button-container">
-        <Link href="/dashboard" passHref>
-          <button>Dashboard</button>
-        </Link>
-        <Link href="/info" passHref>
-          <button className="button-icon">
-            <FontAwesomeIcon icon={faQuestion} />
-          </button>
-        </Link>
-      </div>
+      <h1>Banana Bingo</h1>
+      <div>Score:</div>
+    </>
+  );
+};
+
+export default function Navbar({ children }) {
+  const router = useRouter();
+  const path = router.pathname;
+
+  return (
+    <div className="navbar">
+      {path === "/" ? <StartNavbar /> : <GameNavbar />}
     </div>
   );
 }

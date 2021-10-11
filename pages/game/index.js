@@ -24,7 +24,6 @@ export default function Game({ plants }) {
       <Head>
         <title>The Game</title>
       </Head>
-      <h1>Game Page</h1>
       <ul className={styles.game_board}>
         {plants &&
           plants.map((plant, i) => (
