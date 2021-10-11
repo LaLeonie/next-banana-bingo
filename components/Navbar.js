@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import the FontAwesomeIcon component
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faArrowLeft,
   faQuestion,
-} from "@fortawesome/free-solid-svg-icons"; // import the icons you need
+} from "@fortawesome/free-solid-svg-icons";
 import router, { useRouter } from "next/router";
 
 export default function Navbar({ children }) {

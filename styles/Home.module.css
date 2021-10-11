@@ -65,3 +65,16 @@
   padding: 10px;
   z-index: 1;
 }
+
+.close {
+  align-self: flex-end;
+  font-size: 2.5rem;
+  margin-right: 2rem;
+  color: #344856;
+}
+
+.close:hover,
+.close:focus,
+.close:active {
+  color: #a64800;
+}
