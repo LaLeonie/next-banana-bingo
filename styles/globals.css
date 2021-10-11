@@ -46,6 +46,10 @@ a {
   width: 100%;
 }
 
+.navbar-start {
+  justify-content: right;
+}
+
 .content {
   display: flex;
   flex-direction: column;

@@ -46,7 +46,7 @@ export default function Navbar({ children }) {
   const path = router.pathname;
 
   return (
-    <div className="navbar">
+    <div className={`navbar ${path === "/" ? "navbar-start" : "navbar-game"}`}>
       {path === "/" ? <StartNavbar /> : <GameNavbar />}
     </div>
   );
