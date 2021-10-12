@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import GlobalStyle from "../styles/globalStyles";
 import Theme from "../styles/Theme";
 import Layout from "../components/Layout";
+import { wrapper } from "../store/store";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -18,4 +19,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
