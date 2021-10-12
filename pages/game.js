@@ -38,12 +38,11 @@ export default function Game({ plants }) {
           ))}
       </ul>
 
-      <Link href="/tracker">
-        <a>Add Plants</a>
-      </Link>
-      <Link href="/">
-        <a>I am done</a>
-      </Link>
+      <div className="footer">
+        <Link href="/" passHref>
+          <button className="button--primary">I am done</button>
+        </Link>
+      </div>
     </>
   );
 }
