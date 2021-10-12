@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../../styles/Game.module.css";
+import styles from "../styles/Game.module.css";
 
 export const getStaticProps = async () => {
   const res = await fetch(
