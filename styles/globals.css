@@ -80,12 +80,20 @@ a {
   align-items: center;
 }
 
-.footer {
+.main-content {
+  margin-bottom: auto;
+}
+
+.main-footer {
   display: flex;
   justify-content: flex-end;
   width: 100%;
   margin-top: 1rem;
   margin-bottom: 0rem;
+}
+
+.main-footer-centered {
+  justify-content: center;
 }
 
 /* BUTTONS */

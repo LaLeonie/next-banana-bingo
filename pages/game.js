@@ -24,22 +24,23 @@ export default function Game({ plants }) {
       <Head>
         <title>The Game</title>
       </Head>
-      <ul className={styles.game_board}>
-        {plants &&
-          plants.map((plant, i) => (
-            <li key={plant.id} id={i} className={styles.game_field}>
-              <Image
-                src={plant.fields.Image[0].url}
-                alt={plant.fields.Name}
-                width={85}
-                height={85}
-              />
-            </li>
-          ))}
-      </ul>
-
-      <div className="footer">
-        <Link href="/" passHref>
+      <div className="main-content">
+        <ul className={styles.game_board}>
+          {plants &&
+            plants.map((plant, i) => (
+              <li key={plant.id} id={i} className={styles.game_field}>
+                <Image
+                  src={plant.fields.Image[0].url}
+                  alt={plant.fields.Name}
+                  width={85}
+                  height={85}
+                />
+              </li>
+            ))}
+        </ul>
+      </div>
+      <div className="main-footer">
+        <Link href="/result" passHref>
           <button className="button--primary">I am done</button>
         </Link>
       </div>

@@ -7,13 +7,14 @@ export default function Tracker() {
       <Head>
         <title>Plant Tracker</title>
       </Head>
-      <h1>Tracker Page</h1>
-      <Link href="/dashboard">
-        <a>Dashboard</a>
-      </Link>
-      <Link href="/">
-        <a>I am done</a>
-      </Link>
+      <div className="main-content">
+        <h2>Tracker Page</h2>
+      </div>
+      <div className="main-footer">
+        <Link href="/" passHref>
+          <button className="button--primary">I am done</button>
+        </Link>
+      </div>
     </>
   );
 }
