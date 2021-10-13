@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Head from "next/head";
+import { useState } from "react";
 import Image from "next/image";
 import styles from "../styles/Game.module.css";
 
 export const getStaticProps = async () => {
+  const [countdownDisplay, setCountdownDisplay] = useState(true);
+
   const res = await fetch(
     `https://api.airtable.com/v0/apprXnCLMqQbaOEvK/Table%201?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
   );
