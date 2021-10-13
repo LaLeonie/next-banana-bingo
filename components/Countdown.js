@@ -22,8 +22,8 @@ export const Countdown = () => {
   }, [setDisplayText, count]);
 
   return (
-    <dialog className="countdown-container">
-      <div className="countdown-display">{displayText}</div>
+    <dialog className={styles.countdown_container}>
+      <div className={styles.countdown_display}>{displayText}</div>
     </dialog>
   );
 };
