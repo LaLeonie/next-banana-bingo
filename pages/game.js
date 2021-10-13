@@ -30,7 +30,11 @@ export default function Game({ plants }) {
         <title>The Game</title>
       </Head>
       <div className="main-content">
-        <BingoGame plants={plants} />
+        {countdownDisplay ? (
+          <Countdown setCountdownDisplay={setCountdownDisplay} />
+        ) : (
+          <BingoGame plants={plants} />
+        )}
       </div>
       <div className="main-footer">
         <Link href="/result" passHref>

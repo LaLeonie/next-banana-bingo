@@ -1,9 +1,14 @@
+import { useState, useEffect } from "react";
 import styles from "../styles/Game.module.css";
 import { useCountdown } from "../hooks/useCountdown";
 
-export const Countdown = () => {
+export const Countdown = ({ setCountdownDisplay }) => {
   let [displayText, setDisplayText] = useState("");
   let { display, count } = useCountdown(3, 500);
+
+  useEffect(() => {
+    setCountdownDisplay(display);
+  }, [setCountdownDisplay, display]);
 
   useEffect(() => {
     switch (count) {
@@ -17,7 +22,7 @@ export const Countdown = () => {
         setDisplayText("GO");
         break;
       default:
-        setDisplayText("");
+        setDisplayText(count);
     }
   }, [setDisplayText, count]);
 
