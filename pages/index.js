@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
-import Layout from "../components/Layout";
+import Layout from "../components/shared/Layout";
 import { Settings } from "../components/Settings";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
         <div className="button-container">
           <button onClick={() => setShowSettings(true)}>Settings</button>
           <Link href="/game" passHref>
-            <button className="button--primary">Let us Play</button>
+            <button className="button--primary">Let&apos;s Play</button>
           </Link>
         </div>
       </main>

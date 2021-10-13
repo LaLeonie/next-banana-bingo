@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import GlobalStyle from "../styles/globalStyles";
 import Theme from "../styles/Theme";
-import Layout from "../components/Layout";
+import Layout from "../components/shared/Layout";
 import { wrapper } from "../store/store";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
