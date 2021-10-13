@@ -2,11 +2,12 @@ import Link from "next/link";
 import Head from "next/head";
 import { useState } from "react";
 import Image from "next/image";
+
 import styles from "../styles/Game.module.css";
+import { Countdown } from "../components/Countdown";
+import { BingoGame } from "../components/BingoGame";
 
 export const getStaticProps = async () => {
-  const [countdownDisplay, setCountdownDisplay] = useState(true);
-
   const res = await fetch(
     `https://api.airtable.com/v0/apprXnCLMqQbaOEvK/Table%201?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
   );
@@ -22,25 +23,14 @@ export const getStaticProps = async () => {
 };
 
 export default function Game({ plants }) {
+  const [countdownDisplay, setCountdownDisplay] = useState(true);
   return (
     <>
       <Head>
         <title>The Game</title>
       </Head>
       <div className="main-content">
-        <ul className={styles.game_board}>
-          {plants &&
-            plants.map((plant, i) => (
-              <li key={plant.id} id={i} className={styles.game_field}>
-                <Image
-                  src={plant.fields.Image[0].url}
-                  alt={plant.fields.Name}
-                  width={85}
-                  height={85}
-                />
-              </li>
-            ))}
-        </ul>
+        <BingoGame plants={plants} />
       </div>
       <div className="main-footer">
         <Link href="/result" passHref>

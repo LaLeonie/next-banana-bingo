@@ -1,7 +1,7 @@
 import styles from "../styles/Game.module.css";
 import { useCountdown } from "../hooks/useCountdown";
 
-export const Timer = () => {
+export const Countdown = () => {
   let [displayText, setDisplayText] = useState("");
   let { display, count } = useCountdown(3, 500);
 
