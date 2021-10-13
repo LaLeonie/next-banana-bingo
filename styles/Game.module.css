@@ -20,3 +20,24 @@
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+/* Timer component */
+.timer-container {
+  position: absolute;
+  right: -10px;
+  top: 0;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.timer-display {
+  position: absolute;
+  line-height: 0.9;
+  top: 30%;
+  width: 100%;
+  height: 100%;
+}
+
+.timer-time {
+  font-size: 3.75rem;
+}
