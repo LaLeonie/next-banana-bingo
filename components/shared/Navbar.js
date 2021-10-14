@@ -1,11 +1,15 @@
 import Link from "next/link";
+import router, { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faArrowLeft,
   faQuestion,
 } from "@fortawesome/free-solid-svg-icons";
-import router, { useRouter } from "next/router";
+
+import { scoreCalculator } from "../../utils/scoreCalculator";
+import { getToday } from "../../store/user";
 
 const StartNavbar = () => {
   return (
@@ -23,6 +27,9 @@ const StartNavbar = () => {
 };
 
 const GameNavbar = () => {
+  const { initialScore, extraScore } = useSelector(getToday);
+  let scoreSum = scoreCalculator({ initialScore, extraScore });
+
   return (
     <>
       <div className="button-container">
@@ -36,7 +43,7 @@ const GameNavbar = () => {
         </button>
       </div>
       <h1>Banana Bingo</h1>
-      <div>Score:</div>
+      <div>Score: {scoreSum}</div>
     </>
   );
 };

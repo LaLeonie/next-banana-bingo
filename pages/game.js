@@ -44,7 +44,7 @@ export default function Game({ plants }) {
       </div>
       <div className="main-footer">
         <Link href="/result" passHref>
-          <button className="button--primary">I am done</button>
+          <button className="button--primary">I&apos;m done</button>
         </Link>
       </div>
     </>
