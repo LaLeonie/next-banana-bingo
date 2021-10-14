@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Head from "next/head";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import Image from "next/image";
 
 import styles from "../styles/Game.module.css";
+import { getDifficulty } from "../store/game";
+import { filterPlantsByDifficulty } from "../utils/filterPlantsByDifficulty";
+
 import { Countdown } from "../components/Countdown";
 import { BingoGame } from "../components/BingoGame";
 
@@ -14,16 +17,19 @@ export const getStaticProps = async () => {
 
   const data = await res.json();
 
-  //select 25 random plants from API data
-  const randomData = data.records.sort(() => 0.5 - Math.random()).slice(0, 25);
-
   return {
-    props: { plants: randomData },
+    props: { plants: data.records },
   };
 };
 
 export default function Game({ plants }) {
   const [countdownDisplay, setCountdownDisplay] = useState(true);
+  let difficultyLevel = useSelector(getDifficulty);
+
+  const filteredPlants = filterPlantsByDifficulty(plants, difficultyLevel)
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 25);
+
   return (
     <>
       <Head>
@@ -33,7 +39,7 @@ export default function Game({ plants }) {
         {countdownDisplay ? (
           <Countdown setCountdownDisplay={setCountdownDisplay} />
         ) : (
-          <BingoGame plants={plants} />
+          <BingoGame plants={filteredPlants} />
         )}
       </div>
       <div className="main-footer">
