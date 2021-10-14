@@ -1,10 +1,16 @@
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Game.module.css";
 
+import { Timer } from "./Timer";
+
 export const BingoGame = ({ plants }) => {
+  const [timerDisplay, setTimerdisplay] = useState(true);
+
   return (
-    <div>
+    <>
+      {timerDisplay && <Timer setTimerdisplay={setTimerdisplay} />}
       <ul className={styles.game_board}>
         {plants &&
           plants.map((plant, i) => (
@@ -18,6 +24,6 @@ export const BingoGame = ({ plants }) => {
             </li>
           ))}
       </ul>
-    </div>
+    </>
   );
 };

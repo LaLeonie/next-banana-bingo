@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import styles from "../styles/Game.module.css";
 import ProgressBar from "react-customizable-progressbar";
 
 import { useCountdown } from "../hooks/useCountdown";
 
-export const Timer = () => {
+export const Timer = ({ setTimerdisplay }) => {
   const total = 10;
   const { display, count } = useCountdown(total, 1000);
 
@@ -24,6 +25,10 @@ export const Timer = () => {
 
     return s;
   };
+
+  useEffect(() => {
+    setTimerdisplay(display);
+  }, [setTimerdisplay, display]);
 
   return (
     <dialog className="timer-container">
