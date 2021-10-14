@@ -22,15 +22,16 @@
 }
 
 /* Timer component */
-.timer-container {
+.timer_container {
   position: absolute;
-  right: -10px;
+  right: -250px;
   top: 0;
   text-align: center;
   font-size: 1rem;
+  z-index: 1;
 }
 
-.timer-display {
+.timer_display {
   position: absolute;
   line-height: 0.9;
   top: 30%;
@@ -38,7 +39,7 @@
   height: 100%;
 }
 
-.timer-time {
+.timer_time {
   font-size: 3.75rem;
 }
 

@@ -5,7 +5,7 @@ import ProgressBar from "react-customizable-progressbar";
 import { useCountdown } from "../hooks/useCountdown";
 
 export const Timer = ({ setTimerdisplay }) => {
-  const total = 10;
+  const total = 30;
   const { display, count } = useCountdown(total, 1000);
 
   const getProgress = () => {
@@ -31,7 +31,7 @@ export const Timer = ({ setTimerdisplay }) => {
   }, [setTimerdisplay, display]);
 
   return (
-    <dialog className="timer-container">
+    <div className={styles.timer_container}>
       <ProgressBar
         trackStrokeColor={"transparent"}
         progress={getProgress()}
@@ -39,11 +39,11 @@ export const Timer = ({ setTimerdisplay }) => {
         counterClockwise
         strokeColor={getColor()}
       >
-        <div className="timer-display">
-          <div className="timer-time">{getSeconds()}</div>
-          <p>SECONDS</p>
+        <div className={styles.timer_display}>
+          <div className={styles.timer_time}>{getSeconds()}</div>
+          <div>SECONDS</div>
         </div>
       </ProgressBar>
-    </dialog>
+    </div>
   );
 };
