@@ -46,7 +46,8 @@ dialog {
   box-sizing: border-box;
 }
 
-/* Navigation Bar  */
+/*  ---------------------- UI SECTIONS  ---------------------- */
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -93,6 +94,7 @@ dialog {
   justify-content: center;
 }
 
+/* Footer */
 .main-footer {
   display: flex;
   justify-content: flex-end;
@@ -105,13 +107,7 @@ dialog {
   justify-content: center;
 }
 
-/* BUTTONS */
-.button-container {
-  display: flex;
-  gap: 8px;
-  min-width: 120px;
-  padding-bottom: 20px;
-}
+/* ---------------------- BUTTONS  ---------------------- */
 
 button {
   align-items: center;
@@ -165,4 +161,31 @@ button {
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, #005adf 0 7px 13px -3px,
     #012261 0 -3px 0 inset;
   color: #fff;
+}
+
+/* button containers */
+
+.button-container {
+  display: flex;
+  gap: 8px;
+  min-width: 120px;
+  padding-bottom: 20px;
+}
+
+.button-container--compressed {
+  gap: 0;
+}
+
+.button-container--compressed button {
+  border-radius: 0;
+}
+
+.button-container--compressed :last-child {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.button-container--compressed :first-child {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
 }

@@ -13,7 +13,7 @@ export const Settings = ({ setShowSettings }) => {
         onClick={() => setShowSettings(false)}
       />
       <h2>Set The Difficulty Level</h2>
-      <div className="button-container">
+      <div className="button-container--compressed">
         {difficulties.map((type, i) => (
           <button key={i}>{type}</button>
         ))}
