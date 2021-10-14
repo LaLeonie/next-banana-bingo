@@ -163,6 +163,18 @@ button {
   color: #fff;
 }
 
+button.selected {
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #8ee45a 0,
+    #3d7f15 100%
+  );
+  color: #fff;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #005a00 0 -3px 0 inset;
+  transform: translateY(0px);
+}
+
 /* button containers */
 
 .button-container {
