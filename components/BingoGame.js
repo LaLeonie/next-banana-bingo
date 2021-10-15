@@ -1,12 +1,17 @@
-import { useState } from "react";
-import Link from "next/link";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import styles from "../styles/Game.module.css";
 
+import { changeGameStatus } from "../store/game";
+import { addInitialScore, addVictory, addSelectedPlants } from "../store/user";
+import { bingoLogic } from "../utils/bingoLogic";
 import { positionCalculator } from "../utils/positionCalculator";
 import { Timer } from "./Timer";
 
 export const BingoGame = ({ plants }) => {
+  const dispatch = useDispatch();
+
   const [timerDisplay, setTimerdisplay] = useState(true);
   const [selection, setSelection] = useState([]);
 
@@ -31,6 +36,19 @@ export const BingoGame = ({ plants }) => {
       }
     }
   };
+
+  //bingo logic
+  useEffect(() => {
+    if (selection.length >= 5) {
+      const positions = selection.map((el) => el.position);
+      if (bingoLogic(positions)) {
+        dispatch(addVictory());
+        dispatch(addInitialScore(10));
+        dispatch(changeGameStatus(true));
+        setTimerdisplay(false);
+      }
+    }
+  }, [selection, dispatch]);
 
   return (
     <>
