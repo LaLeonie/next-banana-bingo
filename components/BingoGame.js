@@ -14,8 +14,11 @@ export const BingoGame = ({ plants }) => {
 
   const [timerDisplay, setTimerdisplay] = useState(true);
   const [selection, setSelection] = useState([]);
+  const [showResult, setShowResult] = useState(false);
 
   const endGame = () => {
+    setShowResult(true);
+
     dispatch(changeGameStatus(true));
     addSelectedPlants(selection);
   };
@@ -57,7 +60,9 @@ export const BingoGame = ({ plants }) => {
 
   return (
     <>
-      {timerDisplay && <Timer setTimerdisplay={setTimerdisplay} />}
+      {timerDisplay && (
+        <Timer setTimerdisplay={setTimerdisplay} endGame={endGame} />
+      )}
       <ul className={styles.game_board} onClick={handlePlantClick}>
         {plants &&
           plants.map((plant, i) => (
