@@ -15,6 +15,11 @@ export const BingoGame = ({ plants }) => {
   const [timerDisplay, setTimerdisplay] = useState(true);
   const [selection, setSelection] = useState([]);
 
+  const endGame = () => {
+    dispatch(changeGameStatus(true));
+    addSelectedPlants(selection);
+  };
+
   const handlePlantClick = (e) => {
     const plantName = e.target.alt;
     const listItem = e.target.parentNode.parentNode;
@@ -44,7 +49,7 @@ export const BingoGame = ({ plants }) => {
       if (bingoLogic(positions)) {
         dispatch(addVictory());
         dispatch(addInitialScore(10));
-        dispatch(changeGameStatus(true));
+
         setTimerdisplay(false);
       }
     }
