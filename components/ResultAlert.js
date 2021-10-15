@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import styles from "./../styles/Game.module.css";
 
 import { getToday } from "../store/user";
 
@@ -23,8 +24,10 @@ export const ResultAlert = () => {
   }, []);
 
   return (
-    <dialog>
-      <div victory={victory}>{message}</div>
+    <dialog className={styles.result_container}>
+      <div className={victory ? styles.display_victory : styles.display_fail}>
+        {message}
+      </div>
     </dialog>
   );
 };

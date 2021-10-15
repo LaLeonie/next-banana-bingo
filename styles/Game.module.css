@@ -76,3 +76,48 @@
 
 .countdown_display {
 }
+
+/* Result alert component */
+.result_container {
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.display_victory {
+  width: 500px;
+  border-radius: 50px;
+  padding: 10px;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #a2e977 0,
+    #67d723 100%
+  );
+
+  box-shadow: #005a00 0px -23px 25px 0px inset, #3d7f15 0px -36px 30px 0px inset,
+    #67d723 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.1) 0px 8px 4px,
+    rgba(0, 0, 0, 0.1) 0px 16px 8px, rgba(0, 0, 0, 0.1) 0px 32px 16px;
+}
+
+.display_fail {
+  width: 500px;
+  border-radius: 50px;
+  padding: 10px;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #ff745e 0,
+    #ff3a1a 100%
+  );
+
+  box-shadow: #b40000 0px -23px 25px 0px inset, #d51e00 0px -36px 30px 0px inset,
+    #ff3a1a 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.1) 0px 8px 4px,
+    rgba(0, 0, 0, 0.1) 0px 16px 8px, rgba(0, 0, 0, 0.1) 0px 32px 16px;
+}
