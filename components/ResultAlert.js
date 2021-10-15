@@ -25,7 +25,11 @@ export const ResultAlert = () => {
 
   return (
     <dialog className={styles.result_container}>
-      <div className={victory ? styles.display_victory : styles.display_fail}>
+      <div
+        className={`${styles.result_display} ${
+          victory ? styles.display_victory : styles.display_fail
+        }`}
+      >
         {message}
       </div>
     </dialog>

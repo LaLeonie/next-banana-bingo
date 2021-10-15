@@ -80,20 +80,32 @@
 /* Result alert component */
 .result_container {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  width: 600px;
+  height: 250px;
+  left: -81.5px;
+  padding: 0;
+}
+
+.result_display {
   width: 100%;
-  height: 15%;
-  min-height: 40vh;
+  height: 100%;
+  border-radius: 100px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  z-index: 1;
+}
+
+.resul_display h2 {
+  margin: 0;
 }
 
 .display_victory {
-  width: 500px;
-  border-radius: 50px;
-  padding: 10px;
   background-image: radial-gradient(
     100% 100% at 100% 0,
     #a2e977 0,
@@ -107,9 +119,6 @@
 }
 
 .display_fail {
-  width: 500px;
-  border-radius: 50px;
-  padding: 10px;
   background-image: radial-gradient(
     100% 100% at 100% 0,
     #ff745e 0,

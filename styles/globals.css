@@ -25,7 +25,9 @@ h3,
 h4,
 h5 {
   font-family: "Ranchers", cursive;
+  font-size: 3.75rem;
   color: var(--neutral-600);
+  margin: 0;
 }
 
 h1 {
