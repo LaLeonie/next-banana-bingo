@@ -12,13 +12,14 @@ export const BingoGame = ({ plants }) => {
 
   const handlePlantClick = (e) => {
     const plantName = e.target.alt;
-    console.log(plantName);
+    const listItem = e.target.parentNode.parentNode;
+
     if (plantName) {
-      if (e.target.classList.contains("selected")) {
+      if (listItem.classList.contains(styles.selected)) {
         setSelection(
           selection.filter((plant) => plant.fields.Name !== plantName)
         );
-        e.target.classList.remove("selected");
+        listItem.classList.remove(styles.selected);
       } else {
         const index = e.target.parentNode.id;
         const selectedPlant = plants.find(
@@ -26,7 +27,7 @@ export const BingoGame = ({ plants }) => {
         );
         selectedPlant.position = positionCalculator(index);
         setSelection([...selection, selectedPlant]);
-        e.target.classList.toggle("selected");
+        listItem.classList.toggle(styles.selected);
       }
     }
   };
