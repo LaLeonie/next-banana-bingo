@@ -8,17 +8,18 @@ import { addInitialScore, addVictory, addSelectedPlants } from "../store/user";
 import { bingoLogic } from "../utils/bingoLogic";
 import { positionCalculator } from "../utils/positionCalculator";
 import { Timer } from "./Timer";
+import { ResultAlert } from "./ResultAlert";
 
 export const BingoGame = ({ plants }) => {
   const dispatch = useDispatch();
 
-  const [timerDisplay, setTimerdisplay] = useState(true);
+  const [showTimer, setShowTimer] = useState(true);
   const [selection, setSelection] = useState([]);
   const [showResult, setShowResult] = useState(false);
 
   const endGame = () => {
     setShowResult(true);
-
+    setShowTimer(false);
     dispatch(changeGameStatus(true));
     addSelectedPlants(selection);
   };
@@ -52,17 +53,15 @@ export const BingoGame = ({ plants }) => {
       if (bingoLogic(positions)) {
         dispatch(addVictory());
         dispatch(addInitialScore(10));
-
-        setTimerdisplay(false);
+        endGame();
       }
     }
   }, [selection, dispatch]);
 
   return (
     <>
-      {timerDisplay && (
-        <Timer setTimerdisplay={setTimerdisplay} endGame={endGame} />
-      )}
+      {showTimer && <Timer endGame={endGame} />}
+      {showResult && <ResultAlert />}
       <ul className={styles.game_board} onClick={handlePlantClick}>
         {plants &&
           plants.map((plant, i) => (
