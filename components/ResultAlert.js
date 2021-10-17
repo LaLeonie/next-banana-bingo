@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styles from "./../styles/Game.module.css";
@@ -5,6 +6,7 @@ import styles from "./../styles/Game.module.css";
 import { getToday } from "../store/user";
 
 export const ResultAlert = () => {
+  const router = useRouter();
   const { victory } = useSelector(getToday);
 
   const message = victory ? (
@@ -20,7 +22,9 @@ export const ResultAlert = () => {
   );
 
   useEffect(() => {
-    setTimeout(() => {}, 3000);
+    setTimeout(() => {
+      router.push("/result");
+    }, 3000);
   }, []);
 
   return (
