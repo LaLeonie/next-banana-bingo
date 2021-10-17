@@ -6,6 +6,7 @@ import Head from "next/head";
 
 import styles from "./../styles/Result.module.css";
 import { getToday } from "../store/user";
+import PlantList from "../components/shared/PlantList";
 
 const victoryMessage = (
   <>
@@ -26,6 +27,7 @@ export default function Result() {
   const dispatch = useDispatch();
   const { victory, dailyPlants, extraScore } = useSelector(getToday);
   const newScore = dailyPlants.length;
+  console.log(dailyPlants);
 
   return (
     <>
@@ -34,6 +36,7 @@ export default function Result() {
       </Head>
       <div className="main-content">
         {victory ? victoryMessage : loseMessage}
+        <PlantList plants={dailyPlants} />
       </div>
 
       <div className="main-footer main-footer-centered">

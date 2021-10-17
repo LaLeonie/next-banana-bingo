@@ -18,6 +18,7 @@ export const BingoGame = ({ plants }) => {
   const [showResult, setShowResult] = useState(false);
 
   const endGame = () => {
+    console.log("game ended", selection);
     setShowResult(true);
     setShowTimer(false);
     dispatch(changeGameStatus(true));
