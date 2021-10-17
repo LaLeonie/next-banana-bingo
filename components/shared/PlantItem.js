@@ -1,10 +1,16 @@
 import React from "react";
 import Image from "next/image";
 
-const PlantItem = ({ name, image, displayName, handlePlanItemClick }) => {
+const PlantItem = ({
+  name,
+  selectable,
+  image,
+  displayName,
+  handlePlanItemClick,
+}) => {
   return (
     <li
-      className="plant_item plant_item--selectable"
+      className={`plant_item ${selectable ? "plant_item--selectable" : ""}`}
       name={name}
       key={name}
       onClick={handlePlanItemClick}

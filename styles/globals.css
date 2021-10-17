@@ -206,6 +206,19 @@ button.selected {
 
 /* Plant List and Items */
 
+.plant_list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: auto;
+  padding: 0;
+}
+
+.plant_list--narrow {
+  width: 270px;
+}
+
 .plant_item {
   display: flex;
   flex-direction: column;

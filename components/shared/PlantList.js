@@ -1,17 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { PlantItem } from ".";
-
-const PlantListFlex = styled.ul`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 5px;
-  width: ${({ narrow }) => (narrow ? "270px" : "")};
-  margin: auto;
-  padding: 0;
-`;
+import PlantItem from "./PlantItem";
 
 const PlantList = ({
   selectable,
@@ -22,7 +12,7 @@ const PlantList = ({
   handlePlanItemClick,
 }) => {
   return (
-    <PlantListFlex narrow={narrow}>
+    <ul narrow={narrow}>
       {plants &&
         plants.map((el, i) => (
           <PlantItem
@@ -35,7 +25,7 @@ const PlantList = ({
             image={el.fields.Image[0].url}
           />
         ))}
-    </PlantListFlex>
+    </ul>
   );
 };
 
