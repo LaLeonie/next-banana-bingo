@@ -22,7 +22,7 @@ export const BingoGame = ({ plants }) => {
     setShowResult(true);
     setShowTimer(false);
     dispatch(changeGameStatus(true));
-    addSelectedPlants(selection);
+    dispatch(addSelectedPlants(selection));
   };
 
   const handlePlantClick = (e) => {

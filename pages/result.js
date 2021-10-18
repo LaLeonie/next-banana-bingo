@@ -27,7 +27,7 @@ export default function Result() {
   const dispatch = useDispatch();
   const { victory, dailyPlants, extraScore } = useSelector(getToday);
   const newScore = dailyPlants.length;
-  console.log(dailyPlants);
+  console.log("on result page", dailyPlants);
 
   return (
     <>
