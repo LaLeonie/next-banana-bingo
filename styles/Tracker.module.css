@@ -58,75 +58,40 @@
 .selected {
   border: none;
   box-shadow: 0 0 0 3pt black;
+  border: solid 2px black;
 }
 
 .Red {
-    background: linear-gradient(
-      145deg,
-      #FF3A1A,
-      #D51E00
-    );
-    box-shadow: #B40000 0 -3px
-      0 inset;
-  }
+  background: linear-gradient(145deg, #ff3a1a, #d51e00);
+  box-shadow: #b40000 0 -3px 0 inset;
+}
 
-  .Green {
-    background: linear-gradient(
-      145deg,
-      #67D723,
-      #3d7f15
-    );
-    box-shadow: #005A00 0 -3px
-      0 inset;
-  }
+.Green {
+  background: linear-gradient(145deg, #67d723, #3d7f15);
+  box-shadow: #005a00 0 -3px 0 inset;
+}
 
-  .Yellow {
-    background: linear-gradient(
-      145deg,
-      #FFC121,
-      #EDAB00
-    );
-    box-shadow: #cb9200 0 -3px
-      0 inset;
-  }
+.Yellow {
+  background: linear-gradient(145deg, #ffc121, #edab00);
+  box-shadow: #cb9200 0 -3px 0 inset;
+}
 
-  .Orange {
-    background: linear-gradient(
-      145deg,
-      #FF9000,
-      #DD7D00
-    );
-    box-shadow: #A64800 0 -3px
-      0 inset;
-  }
+.Orange {
+  background: linear-gradient(145deg, #ff9000, #dd7d00);
+  box-shadow: #a64800 0 -3px 0 inset;
+}
 
-  .Purple {
-    background: linear-gradient(
-      145deg,
-      #C448B5,
-      #A43597
-    );
-    box-shadow: #64205c 0 -3px
-      0 inset;
-  }
+.Purple {
+  background: linear-gradient(145deg, #c448b5, #a43597);
+  box-shadow: #64205c 0 -3px 0 inset;
+}
 
-  .Brown {
-    background: linear-gradient(
-      145deg,
-      #A6682F,
-      #763F04
-    );
-    box-shadow: #573619 0 -3px
-      0 inset;
-  }
+.Brown {
+  background: linear-gradient(145deg, #a6682f, #763f04);
+  box-shadow: #573619 0 -3px 0 inset;
+}
 
-  .Blue {
-    background: linear-gradient(
-      145deg,
-      #4082FE,
-      #005adf
-    );
-    box-shadow: #012261 0 -3px
-      0 inset;
-  }
-`;
+.Blue {
+  background: linear-gradient(145deg, #4082fe, #005adf);
+  box-shadow: #012261 0 -3px 0 inset;
+}

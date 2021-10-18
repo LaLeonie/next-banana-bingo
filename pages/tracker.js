@@ -12,6 +12,8 @@ import {
   getToday,
 } from "../store/user";
 
+import { FilterPanel } from "../components/FilterPanel";
+
 export const getStaticProps = async () => {
   const res = await fetch(
     `https://api.airtable.com/v0/apprXnCLMqQbaOEvK/Table%201?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
@@ -44,7 +46,7 @@ export default function Tracker({ apiPlants }) {
         <p>You can filter the plants by color and type</p>
         <div className={styles.tracker_container}>
           <div className={styles.tracker_display}>
-            <div className={styles.filter_container}></div>
+            <FilterPanel colors={colors} setColor={setColor} />
           </div>
         </div>
       </div>

@@ -11,14 +11,16 @@ export const FilterPanel = ({ setColor, colors }) => {
   };
 
   return (
-    <ul className={styles.colors_list}>
-      {colors.map((col) => (
-        <li
-          onClick={(col) => handleColorSelect(e, col)}
-          key={col}
-          className={`${styles.color_item} ${col}`}
-        />
-      ))}
-    </ul>
+    <div className={styles.filter_container}>
+      <ul className={styles.colors_list}>
+        {colors.map((col) => (
+          <li
+            onClick={(e) => handleColorSelect(e, col)}
+            key={col}
+            className={`${styles.color_item} ${styles[col]}`}
+          />
+        ))}
+      </ul>
+    </div>
   );
 };
