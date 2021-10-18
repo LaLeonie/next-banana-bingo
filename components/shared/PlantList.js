@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 import PlantItem from "./PlantItem";
 
@@ -12,7 +11,7 @@ const PlantList = ({
   handlePlanItemClick,
 }) => {
   return (
-    <ul narrow={narrow}>
+    <ul className={`plant_list ${narrow ? "plant_list--narrow" : ""}`}>
       {plants &&
         plants.map((el, i) => (
           <PlantItem

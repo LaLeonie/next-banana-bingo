@@ -211,7 +211,7 @@ button.selected {
   justify-content: center;
   flex-wrap: wrap;
   gap: 5px;
-  margin: auto;
+  /* margin: auto; */
   padding: 0;
 }
 
