@@ -37,3 +37,25 @@
   gap: 4px;
   justify-content: space-between;
 }
+
+/* Color Filter  */
+.colors_list {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.color_item {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+}
+
+.selected {
+  border: none;
+  box-shadow: 0 0 0 3pt black;
+}

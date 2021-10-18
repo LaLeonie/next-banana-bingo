@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import Head from "next/head";
 
+import styles from "../styles/Tracker.module.css";
 import {
   removeSelectedPlant,
   addSelectedPlants,
@@ -40,6 +41,12 @@ export default function Tracker({ apiPlants }) {
       </Head>
       <div className="main-content">
         <h2>Let's Add More Plants</h2>
+        <p>You can filter the plants by color and type</p>
+        <div className={styles.tracker_container}>
+          <div className={styles.tracker_display}>
+            <div className={styles.filter_container}></div>
+          </div>
+        </div>
       </div>
       <div className="main-footer">
         <Link href="/" passHref>
