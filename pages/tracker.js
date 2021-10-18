@@ -28,6 +28,7 @@ export const getStaticProps = async () => {
 };
 
 export default function Tracker({ apiPlants }) {
+  const dispatch = useDispatch();
   const { dailyPlants } = useSelector(getToday);
   const colors = Array.from(
     new Set(apiPlants.map((plant) => plant.fields.Color))
@@ -47,13 +48,13 @@ export default function Tracker({ apiPlants }) {
 
     plantName = node.getAttribute("name");
 
-    if (node.classList.contains("item--selected")) {
+    if (node.classList.contains("plant_item--selected")) {
       dispatch(removeSelectedPlant(plantName));
       dispatch(subtractExtraScore(1));
     }
 
-    if (!node.classList.contains("item--selected")) {
-      let plantObject = allPlants.find((obj) => obj.fields.Name === plantName);
+    if (!node.classList.contains("plant_item--selected")) {
+      let plantObject = apiPlants.find((obj) => obj.fields.Name === plantName);
 
       if (!dailyPlants.find((obj) => obj.fields.Name === plantName)) {
         dispatch(addSelectedPlants([plantObject]));

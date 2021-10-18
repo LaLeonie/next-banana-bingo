@@ -4,13 +4,16 @@ import Image from "next/image";
 const PlantItem = ({
   name,
   selectable,
+  selected,
   image,
   displayName,
   handlePlanItemClick,
 }) => {
   return (
     <li
-      className={`plant_item ${selectable ? "plant_item--selectable" : ""}`}
+      className={`plant_item ${selectable ? "plant_item--selectable" : ""} ${
+        selected ? "plant_item--selected" : ""
+      } `}
       name={name}
       key={name}
       onClick={handlePlanItemClick}
