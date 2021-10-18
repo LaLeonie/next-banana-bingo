@@ -59,3 +59,74 @@
   border: none;
   box-shadow: 0 0 0 3pt black;
 }
+
+.Red {
+    background: linear-gradient(
+      145deg,
+      #FF3A1A,
+      #D51E00
+    );
+    box-shadow: #B40000 0 -3px
+      0 inset;
+  }
+
+  .Green {
+    background: linear-gradient(
+      145deg,
+      #67D723,
+      #3d7f15
+    );
+    box-shadow: #005A00 0 -3px
+      0 inset;
+  }
+
+  .Yellow {
+    background: linear-gradient(
+      145deg,
+      #FFC121,
+      #EDAB00
+    );
+    box-shadow: #cb9200 0 -3px
+      0 inset;
+  }
+
+  .Orange {
+    background: linear-gradient(
+      145deg,
+      #FF9000,
+      #DD7D00
+    );
+    box-shadow: #A64800 0 -3px
+      0 inset;
+  }
+
+  .Purple {
+    background: linear-gradient(
+      145deg,
+      #C448B5,
+      #A43597
+    );
+    box-shadow: #64205c 0 -3px
+      0 inset;
+  }
+
+  .Brown {
+    background: linear-gradient(
+      145deg,
+      #A6682F,
+      #763F04
+    );
+    box-shadow: #573619 0 -3px
+      0 inset;
+  }
+
+  .Blue {
+    background: linear-gradient(
+      145deg,
+      #4082FE,
+      #005adf
+    );
+    box-shadow: #012261 0 -3px
+      0 inset;
+  }
+`;
