@@ -13,6 +13,7 @@ import {
 } from "../store/user";
 
 import { FilterPanel } from "../components/FilterPanel";
+import PlantList from "../components/shared/PlantList";
 
 export const getStaticProps = async () => {
   const res = await fetch(
@@ -27,14 +28,39 @@ export const getStaticProps = async () => {
 };
 
 export default function Tracker({ apiPlants }) {
-  const dailyPlants = useSelector(getToday);
+  const { dailyPlants } = useSelector(getToday);
   const colors = Array.from(
     new Set(apiPlants.map((plant) => plant.fields.Color))
   );
+  console.log(dailyPlants);
 
   let [color, setColor] = useState("");
   let [fruitCheck, setFruitCheck] = useState(true);
   let [vegCheck, setVegCheck] = useState(true);
+
+  const handlePlanItemClick = (e) => {
+    let node = e.target.parentNode;
+    let plantName;
+    if (e.target.nodeName === "LI") {
+      node = e.target;
+    }
+
+    plantName = node.getAttribute("name");
+
+    if (node.classList.contains("item--selected")) {
+      dispatch(removeSelectedPlant(plantName));
+      dispatch(subtractExtraScore(1));
+    }
+
+    if (!node.classList.contains("item--selected")) {
+      let plantObject = allPlants.find((obj) => obj.fields.Name === plantName);
+
+      if (!dailyPlants.find((obj) => obj.fields.Name === plantName)) {
+        dispatch(addSelectedPlants([plantObject]));
+        dispatch(addExtraScore(1));
+      }
+    }
+  };
 
   return (
     <>
@@ -48,8 +74,19 @@ export default function Tracker({ apiPlants }) {
           <div className={styles.tracker_display}>
             <FilterPanel colors={colors} setColor={setColor} />
           </div>
+          <div className={styles.tracker_sidebar}>
+            <h3>Your Plant List</h3>
+            <PlantList
+              handlePlanItemClick={handlePlanItemClick}
+              selected
+              selectable
+              narrow
+              plants={dailyPlants}
+            />
+          </div>
         </div>
       </div>
+
       <div className="main-footer">
         <Link href="/" passHref>
           <button className="button--primary">I am done</button>
