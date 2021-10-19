@@ -33,11 +33,23 @@ export default function Tracker({ apiPlants }) {
   const colors = Array.from(
     new Set(apiPlants.map((plant) => plant.fields.Color))
   );
-  console.log(dailyPlants);
 
   let [color, setColor] = useState("");
   let [fruitCheck, setFruitCheck] = useState(true);
   let [vegCheck, setVegCheck] = useState(true);
+
+  const getFilteredPlants = (plants, color, fruit, veg) => {
+    let displayPlants = plants.filter(
+      (obj) => dailyPlants.findIndex((el) => el.id === obj.id) === -1
+    );
+    console.log(displayPlants);
+    return displayPlants.filter(
+      (el) =>
+        el.fields.Color === color &&
+        ((fruit && el.fields.Type === "Fruit") ||
+          (veg && el.fields.Type === "Veg"))
+    );
+  };
 
   const handlePlanItemClick = (e) => {
     let node = e.target.parentNode.parentNode;
@@ -45,7 +57,7 @@ export default function Tracker({ apiPlants }) {
     if (e.target.nodeName === "LI") {
       node = e.target;
     }
-    console.log(node);
+
     plantName = node.getAttribute("name");
 
     if (node.classList.contains("plant_item--selected")) {
@@ -82,7 +94,14 @@ export default function Tracker({ apiPlants }) {
               vegCheck={vegCheck}
               fruitCheck={fruitCheck}
             />
+            <PlantList
+              handlePlanItemClick={handlePlanItemClick}
+              displayName
+              selectable
+              plants={getFilteredPlants(apiPlants, color, fruitCheck, vegCheck)}
+            />
           </div>
+
           <div className={styles.tracker_sidebar}>
             <div>Your Plant List</div>
             <PlantList
