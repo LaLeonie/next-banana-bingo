@@ -40,6 +40,12 @@
   font-size: 1.5rem;
 }
 
+.alert_message {
+  font-size: 2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
 /* Settings modal */
 .modal {
   position: absolute;

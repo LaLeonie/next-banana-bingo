@@ -116,7 +116,7 @@ export default function Tracker({ apiPlants }) {
       </div>
 
       <div className="main-footer">
-        <Link href="/" passHref>
+        <Link href="/result" passHref>
           <button className="button--primary">I am done</button>
         </Link>
       </div>

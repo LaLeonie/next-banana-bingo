@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 import { Settings } from "../components/Settings";
+import { getPlayedToday } from "../store/game";
 
 export default function Home() {
+  const playedToday = useSelector(getPlayedToday);
   const [showSettings, setShowSettings] = useState(false);
   return (
     <>
@@ -16,10 +19,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className="main-content">
         {showSettings && <Settings setShowSettings={setShowSettings} />}
         <h1 className={styles.title}>Banana Bingo</h1>
-        <div className="button-container">
+        {playedToday && (
+          <div className={styles.alert_message}>
+            You have already played today. <br></br>Come back tomorrow for
+            another round of Banana Bingo!
+          </div>
+        )}
+
+        <div className="button-container button-container--centered ">
           <button onClick={() => setShowSettings(true)}>Settings</button>
           <Link href="/game" passHref>
             <button className="button--primary">Let&apos;s Play</button>

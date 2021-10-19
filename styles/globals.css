@@ -199,6 +199,11 @@ button.selected {
   padding-bottom: 20px;
 }
 
+.button-container--centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .button-container--compressed {
   gap: 0;
 }
