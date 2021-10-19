@@ -10,9 +10,18 @@ export const FilterPanel = ({ setColor, colors }) => {
     e.target.classList.toggle(styles.selected);
   };
 
+  const handleTypeSelect = (type) => {
+    if (type === "fruit") {
+      console.log("fruit");
+      // setFruitCheck(!fruitCheck);
+    } else {
+      // setVegCheck(!vegCheck);
+    }
+  };
+
   return (
     <div className={styles.filter_container}>
-      <ul className={styles.colors_list}>
+      <ul className={styles.colors_filter}>
         {colors.map((col) => (
           <li
             onClick={(e) => handleColorSelect(e, col)}
@@ -21,6 +30,26 @@ export const FilterPanel = ({ setColor, colors }) => {
           />
         ))}
       </ul>
+      <div className={styles.type_filter}>
+        <div className={styles.type_field}>
+          <input
+            type="checkbox"
+            id="fruit"
+            name="fruit"
+            onChange={() => handleTypeSelect("fruit")}
+          />
+          <label htmlFor="fruit">Fruit</label>
+        </div>
+        <div className={styles.type_field}>
+          <input
+            type="checkbox"
+            id="veg"
+            name="veg"
+            onChange={() => handleTypeSelect("veg")}
+          />
+          <label htmlFor="fruit">Veg</label>
+        </div>
+      </div>
     </div>
   );
 };

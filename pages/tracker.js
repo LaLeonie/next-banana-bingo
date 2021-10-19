@@ -77,7 +77,7 @@ export default function Tracker({ apiPlants }) {
             <FilterPanel colors={colors} setColor={setColor} />
           </div>
           <div className={styles.tracker_sidebar}>
-            <h3>Your Plant List</h3>
+            <div>Your Plant List</div>
             <PlantList
               handlePlanItemClick={handlePlanItemClick}
               selected

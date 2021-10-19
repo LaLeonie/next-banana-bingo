@@ -39,8 +39,29 @@
   justify-content: space-between;
 }
 
+/* Type Filter */
+.type_filter {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.type_field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 20px;
+}
+
+.type_field input {
+  cursor: pointer;
+}
+
 /* Color Filter  */
-.colors_list {
+.colors_filter {
   margin: 20px 0;
   display: flex;
   justify-content: space-between;
