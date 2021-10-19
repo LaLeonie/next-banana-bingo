@@ -40,15 +40,16 @@ export default function Tracker({ apiPlants }) {
   let [vegCheck, setVegCheck] = useState(true);
 
   const handlePlanItemClick = (e) => {
-    let node = e.target.parentNode;
+    let node = e.target.parentNode.parentNode;
     let plantName;
     if (e.target.nodeName === "LI") {
       node = e.target;
     }
-
+    console.log(node);
     plantName = node.getAttribute("name");
 
     if (node.classList.contains("plant_item--selected")) {
+      console.log("removing", plantName);
       dispatch(removeSelectedPlant(plantName));
       dispatch(subtractExtraScore(1));
     }

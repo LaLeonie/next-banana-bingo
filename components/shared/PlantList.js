@@ -10,6 +10,7 @@ const PlantList = ({
   selected,
   handlePlanItemClick,
 }) => {
+  console.log("plants in PlantList", plants);
   return (
     <ul className={`plant_list ${narrow ? "plant_list--narrow" : ""}`}>
       {plants &&

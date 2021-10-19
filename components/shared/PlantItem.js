@@ -13,7 +13,7 @@ const PlantItem = ({
     <li
       className={`plant_item ${selectable ? "plant_item--selectable" : ""} ${
         selected ? "plant_item--selected" : ""
-      } `}
+      }`}
       name={name}
       key={name}
       onClick={handlePlanItemClick}
