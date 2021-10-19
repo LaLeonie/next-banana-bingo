@@ -30,9 +30,13 @@ export default function Home() {
         )}
 
         <div className="button-container button-container--centered ">
-          <button onClick={() => setShowSettings(true)}>Settings</button>
+          <button disabled={playedToday} onClick={() => setShowSettings(true)}>
+            Settings
+          </button>
           <Link href="/game" passHref>
-            <button className="button--primary">Let&apos;s Play</button>
+            <button disabled={playedToday} className="button--primary">
+              Let&apos;s Play
+            </button>
           </Link>
         </div>
       </main>
