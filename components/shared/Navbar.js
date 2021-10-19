@@ -10,6 +10,7 @@ import {
 
 import { scoreCalculator } from "../../utils/scoreCalculator";
 import { getToday } from "../../store/user";
+import { getPlayedToday } from "../../store/game";
 
 const StartNavbar = () => {
   return (
@@ -27,8 +28,20 @@ const StartNavbar = () => {
 };
 
 const GameNavbar = () => {
+  const playedToday = useSelector(getPlayedToday);
   const { initialScore, extraScore } = useSelector(getToday);
   let scoreSum = scoreCalculator({ initialScore, extraScore });
+  const router = useRouter();
+
+  const handleBackButton = () => {
+    if (playedToday && router.pathname === "/result") {
+      alert(
+        "You have already played today. Come back tomorrow for another round of Banana Bingo"
+      );
+      return;
+    }
+    router.back();
+  };
 
   return (
     <>
@@ -38,9 +51,11 @@ const GameNavbar = () => {
             <FontAwesomeIcon icon={faHome} />
           </button>
         </Link>
-        <button onClick={() => router.back()} className="button-icon">
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </button>
+        {router.pathname !== "/result" && (
+          <button onClick={() => router.back()} className="button-icon">
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </button>
+        )}
       </div>
       <h1>Banana Bingo</h1>
       <div>Score: {scoreSum}</div>

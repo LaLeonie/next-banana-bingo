@@ -43,7 +43,7 @@ export default function Result() {
           <Link href="/tracker" passHref>
             <button className="button--primary">Yes, I had more</button>
           </Link>
-          <Link href="/" passHref>
+          <Link href="/dashboard" passHref>
             <button>No, that is all I had</button>
           </Link>
         </div>
