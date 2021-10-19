@@ -11,6 +11,7 @@ import {
   subtractExtraScore,
   getToday,
 } from "../store/user";
+import { getPlayedToday } from "../store/game";
 
 import { FilterPanel } from "../components/FilterPanel";
 import PlantList from "../components/shared/PlantList";
@@ -30,6 +31,7 @@ export const getStaticProps = async () => {
 export default function Tracker({ apiPlants }) {
   const dispatch = useDispatch();
   const { dailyPlants } = useSelector(getToday);
+
   const colors = Array.from(
     new Set(apiPlants.map((plant) => plant.fields.Color))
   );

@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import styles from "../styles/Game.module.css";
 import { getDifficulty } from "../store/game";
+import { getPlayedToday } from "../store/game";
 import { filterPlantsByDifficulty } from "../utils/filterPlantsByDifficulty";
 
 import { Countdown } from "../components/Countdown";
@@ -25,6 +26,7 @@ export const getStaticProps = async () => {
 export default function Game({ plants }) {
   const [countdownDisplay, setCountdownDisplay] = useState(true);
   let difficultyLevel = useSelector(getDifficulty);
+  const playedToday = useSelector(getPlayedToday);
 
   const filteredPlants = filterPlantsByDifficulty(plants, difficultyLevel)
     .sort(() => 0.5 - Math.random())
@@ -44,7 +46,9 @@ export default function Game({ plants }) {
       </div>
       <div className="main-footer">
         <Link href="/result" passHref>
-          <button className="button--primary">I&apos;m done</button>
+          <button disabled={playedToday} className="button--primary">
+            I&apos;m done
+          </button>
         </Link>
       </div>
     </>
