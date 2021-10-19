@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,12 +26,19 @@ export const getStaticProps = async () => {
 
 export default function Game({ plants }) {
   const [countdownDisplay, setCountdownDisplay] = useState(true);
+  const [filteredPlants, setFilteredPlants] = useState([]);
   let difficultyLevel = useSelector(getDifficulty);
   const playedToday = useSelector(getPlayedToday);
 
-  const filteredPlants = filterPlantsByDifficulty(plants, difficultyLevel)
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 25);
+  useEffect(() => {
+    setFilteredPlants(
+      filterPlantsByDifficulty(plants, difficultyLevel)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 25)
+    );
+  }, []);
+
+  console.log("first filtered plant", filteredPlants[0]);
 
   return (
     <>
