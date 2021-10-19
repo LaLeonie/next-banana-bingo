@@ -74,7 +74,14 @@ export default function Tracker({ apiPlants }) {
         <p>You can filter the plants by color and type</p>
         <div className={styles.tracker_container}>
           <div className={styles.tracker_display}>
-            <FilterPanel colors={colors} setColor={setColor} />
+            <FilterPanel
+              colors={colors}
+              setColor={setColor}
+              setFruitCheck={setFruitCheck}
+              setVegCheck={setVegCheck}
+              vegCheck={vegCheck}
+              fruitCheck={fruitCheck}
+            />
           </div>
           <div className={styles.tracker_sidebar}>
             <div>Your Plant List</div>

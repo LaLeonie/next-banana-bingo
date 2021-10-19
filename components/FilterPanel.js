@@ -1,6 +1,13 @@
 import styles from "../styles/Tracker.module.css";
 
-export const FilterPanel = ({ setColor, colors }) => {
+export const FilterPanel = ({
+  setColor,
+  colors,
+  setFruitCheck,
+  setVegCheck,
+  vegCheck,
+  fruitCheck,
+}) => {
   const handleColorSelect = (e, col) => {
     setColor(col);
     e.target.parentNode
@@ -12,10 +19,9 @@ export const FilterPanel = ({ setColor, colors }) => {
 
   const handleTypeSelect = (type) => {
     if (type === "fruit") {
-      console.log("fruit");
-      // setFruitCheck(!fruitCheck);
+      setFruitCheck(!fruitCheck);
     } else {
-      // setVegCheck(!vegCheck);
+      setVegCheck(!vegCheck);
     }
   };
 
@@ -36,6 +42,7 @@ export const FilterPanel = ({ setColor, colors }) => {
             type="checkbox"
             id="fruit"
             name="fruit"
+            checked={fruitCheck}
             onChange={() => handleTypeSelect("fruit")}
           />
           <label htmlFor="fruit">Fruit</label>
@@ -45,6 +52,7 @@ export const FilterPanel = ({ setColor, colors }) => {
             type="checkbox"
             id="veg"
             name="veg"
+            checked={vegCheck}
             onChange={() => handleTypeSelect("veg")}
           />
           <label htmlFor="fruit">Veg</label>
