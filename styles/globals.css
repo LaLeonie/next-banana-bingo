@@ -48,6 +48,18 @@ dialog {
   box-sizing: border-box;
 }
 
+/*  ---------------------- TYPOGRAPHY ---------------------- */
+.subtitle {
+  font-size: 2rem;
+  font-family: Neucha;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration-line: underline;
+  text-decoration-style: "solid";
+  text-decoration-color: #344856;
+  text-decoration-thickness: 3px;
+}
+
 /*  ---------------------- UI SECTIONS  ---------------------- */
 /* Navbar */
 .navbar {
@@ -212,7 +224,7 @@ button.selected {
   justify-content: center;
   flex-wrap: wrap;
   gap: 5px;
-  /* margin: auto; */
+  margin: auto;
   padding: 0;
 }
 

@@ -103,7 +103,7 @@ export default function Tracker({ apiPlants }) {
           </div>
 
           <div className={styles.tracker_sidebar}>
-            <div>Your Plant List</div>
+            <h3 className="subtitle">Your Plant List</h3>
             <PlantList
               handlePlanItemClick={handlePlanItemClick}
               selected
