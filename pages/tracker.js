@@ -44,7 +44,7 @@ export default function Tracker({ apiPlants }) {
     let displayPlants = plants.filter(
       (obj) => dailyPlants.findIndex((el) => el.id === obj.id) === -1
     );
-    console.log(displayPlants);
+
     return displayPlants.filter(
       (el) =>
         el.fields.Color === color &&
@@ -63,7 +63,6 @@ export default function Tracker({ apiPlants }) {
     plantName = node.getAttribute("name");
 
     if (node.classList.contains("plant_item--selected")) {
-      console.log("removing", plantName);
       dispatch(removeSelectedPlant(plantName));
       dispatch(subtractExtraScore(1));
     }

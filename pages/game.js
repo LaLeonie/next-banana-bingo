@@ -38,8 +38,6 @@ export default function Game({ plants }) {
     );
   }, []);
 
-  console.log("first filtered plant", filteredPlants[0]);
-
   return (
     <>
       <Head>

@@ -35,12 +35,14 @@ export const BingoGame = ({ plants }) => {
         );
         listItem.classList.remove(styles.selected);
       } else {
-        const index = e.target.parentNode.id;
+        const index = listItem.id;
         const selectedPlant = plants.find(
           (plant) => plant.fields.Name === plantName
         );
         selectedPlant.position = positionCalculator(index);
+
         setSelection([...selection, selectedPlant]);
+
         listItem.classList.toggle(styles.selected);
       }
     }
@@ -50,6 +52,7 @@ export const BingoGame = ({ plants }) => {
   useEffect(() => {
     if (selection.length >= 5) {
       const positions = selection.map((el) => el.position);
+
       if (bingoLogic(positions)) {
         dispatch(addVictory());
         dispatch(addInitialScore(10));
