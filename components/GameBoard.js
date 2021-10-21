@@ -12,7 +12,7 @@ export const GameBoard = ({ plants }) => {
     if (playedToday) {
       setTimeout(() => {
         setDisplayPlayedMessage(true);
-      }, 500);
+      }, 4000);
     }
   }, [playedToday]);
 
@@ -23,5 +23,7 @@ export const GameBoard = ({ plants }) => {
     </div>
   );
 
-  return <>{displayPlayedMessage ? PlayedMessage : <BingoGame />}</>;
+  return (
+    <>{displayPlayedMessage ? PlayedMessage : <BingoGame plants={plants} />}</>
+  );
 };

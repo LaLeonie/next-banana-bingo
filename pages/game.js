@@ -11,6 +11,7 @@ import { filterPlantsByDifficulty } from "../utils/filterPlantsByDifficulty";
 
 import { Countdown } from "../components/Countdown";
 import { BingoGame } from "../components/BingoGame";
+import { GameBoard } from "../components/GameBoard";
 
 export const getStaticProps = async () => {
   const res = await fetch(
@@ -38,13 +39,6 @@ export default function Game({ plants }) {
     );
   }, []);
 
-  const PlayedMessage = (
-    <div>
-      You have already played today. Come back tomorrow for another round of
-      banana bingo!
-    </div>
-  );
-
   return (
     <>
       <Head>
@@ -54,7 +48,7 @@ export default function Game({ plants }) {
         {countdownDisplay ? (
           <Countdown setCountdownDisplay={setCountdownDisplay} />
         ) : (
-          <BingoGame plants={filteredPlants} />
+          <GameBoard plants={filteredPlants} />
         )}
       </div>
       <div className="main-footer">
