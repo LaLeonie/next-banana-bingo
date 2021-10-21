@@ -27,8 +27,11 @@ export const ResultAlert = () => {
   useEffect(() => {
     setTimeout(() => {
       router.push("/result");
-      dispatch(changeGameStatus(true));
     }, 3000);
+
+    setTimeout(() => {
+      dispatch(changeGameStatus(true));
+    }, 3500);
   }, []);
 
   return (
