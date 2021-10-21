@@ -52,7 +52,7 @@ export const FilterPanel = ({
             type="checkbox"
             id="veg"
             name="veg"
-            checked={vegCheck}
+            checked={ve}
             onChange={() => handleTypeSelect("veg")}
           />
           <label htmlFor="fruit">Veg</label>

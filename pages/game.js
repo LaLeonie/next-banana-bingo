@@ -38,6 +38,13 @@ export default function Game({ plants }) {
     );
   }, []);
 
+  const PlayedMessage = (
+    <div>
+      You have already played today. Come back tomorrow for another round of
+      banana bingo!
+    </div>
+  );
+
   return (
     <>
       <Head>

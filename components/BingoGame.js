@@ -16,6 +16,7 @@ export const BingoGame = ({ plants }) => {
   const [showTimer, setShowTimer] = useState(true);
   const [selection, setSelection] = useState([]);
   const [showResult, setShowResult] = useState(false);
+  const [playedToday, setPlayedToday] = useState(false);
 
   const endGame = () => {
     setShowResult(true);
@@ -57,14 +58,25 @@ export const BingoGame = ({ plants }) => {
         dispatch(addVictory());
         dispatch(addInitialScore(10));
         endGame();
+        setTimeout(() => {
+          setPlayedToday(true);
+        }, 500);
       }
     }
   }, [selection, dispatch]);
+
+  const PlayedMessage = (
+    <div>
+      You have already played today. Come back tomorrow for another round of
+      banana bingo!
+    </div>
+  );
 
   return (
     <>
       {showTimer && <Timer endGame={endGame} />}
       {showResult && <ResultAlert />}
+
       <ul className={styles.game_board} onClick={handlePlantClick}>
         {plants &&
           plants.map((plant, i) => (
