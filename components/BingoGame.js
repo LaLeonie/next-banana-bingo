@@ -21,7 +21,6 @@ export const BingoGame = ({ plants }) => {
   const endGame = () => {
     setShowResult(true);
     setShowTimer(false);
-    dispatch(changeGameStatus(true));
     dispatch(addSelectedPlants(selection));
   };
 
@@ -53,24 +52,13 @@ export const BingoGame = ({ plants }) => {
   useEffect(() => {
     if (selection.length >= 5) {
       const positions = selection.map((el) => el.position);
-
       if (bingoLogic(positions)) {
         dispatch(addVictory());
         dispatch(addInitialScore(10));
         endGame();
-        setTimeout(() => {
-          setPlayedToday(true);
-        }, 500);
       }
     }
   }, [selection, dispatch]);
-
-  const PlayedMessage = (
-    <div>
-      You have already played today. Come back tomorrow for another round of
-      banana bingo!
-    </div>
-  );
 
   return (
     <>

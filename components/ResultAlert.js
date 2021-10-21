@@ -1,12 +1,15 @@
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styles from "./../styles/Game.module.css";
 
+import { changeGameStatus } from "../store/game";
 import { getToday } from "../store/user";
 
 export const ResultAlert = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const { victory } = useSelector(getToday);
 
   const message = victory ? (
@@ -24,6 +27,7 @@ export const ResultAlert = () => {
   useEffect(() => {
     setTimeout(() => {
       router.push("/result");
+      dispatch(changeGameStatus(true));
     }, 3000);
   }, []);
 

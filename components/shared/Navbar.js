@@ -33,16 +33,6 @@ const GameNavbar = () => {
   let scoreSum = scoreCalculator({ initialScore, extraScore });
   const router = useRouter();
 
-  const handleBackButton = () => {
-    if (playedToday && router.pathname === "/result") {
-      alert(
-        "You have already played today. Come back tomorrow for another round of Banana Bingo"
-      );
-      return;
-    }
-    router.back();
-  };
-
   return (
     <>
       <div className="button-container">
@@ -51,11 +41,11 @@ const GameNavbar = () => {
             <FontAwesomeIcon icon={faHome} />
           </button>
         </Link>
-        {router.pathname !== "/result" && (
+        {
           <button onClick={() => router.back()} className="button-icon">
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
-        )}
+        }
       </div>
       <h1>Banana Bingo</h1>
       <div>Score: {scoreSum}</div>
