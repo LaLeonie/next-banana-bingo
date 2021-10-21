@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
-import { BingoGame } from "./BingoGame";
 import { getPlayedToday } from "../store/game";
+import { BingoGame } from "./BingoGame";
+import { Countdown } from "./Countdown";
 
 export const GameBoard = ({ plants }) => {
+  const [countdownDisplay, setCountdownDisplay] = useState(true);
   const playedToday = useSelector(getPlayedToday);
 
   const PlayedMessage = (
@@ -13,5 +16,15 @@ export const GameBoard = ({ plants }) => {
     </div>
   );
 
-  return <>{playedToday ? PlayedMessage : <BingoGame plants={plants} />}</>;
+  return (
+    <>
+      {playedToday ? (
+        PlayedMessage
+      ) : countdownDisplay ? (
+        <Countdown setCountdownDisplay={setCountdownDisplay} />
+      ) : (
+        <BingoGame plants={plants} />
+      )}
+    </>
+  );
 };

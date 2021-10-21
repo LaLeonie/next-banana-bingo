@@ -26,7 +26,6 @@ export const getStaticProps = async () => {
 };
 
 export default function Game({ plants }) {
-  const [countdownDisplay, setCountdownDisplay] = useState(true);
   const [filteredPlants, setFilteredPlants] = useState([]);
   let difficultyLevel = useSelector(getDifficulty);
   const playedToday = useSelector(getPlayedToday);
@@ -45,11 +44,7 @@ export default function Game({ plants }) {
         <title>The Game</title>
       </Head>
       <div className="main-content">
-        {countdownDisplay ? (
-          <Countdown setCountdownDisplay={setCountdownDisplay} />
-        ) : (
-          <GameBoard plants={filteredPlants} />
-        )}
+        <GameBoard plants={filteredPlants} />
       </div>
       <div className="main-footer">
         <Link href="/result" passHref>
