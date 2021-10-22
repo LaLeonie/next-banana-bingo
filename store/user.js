@@ -79,6 +79,7 @@ export function userReducer(state = initialState, action) {
 export const getTotalScore = (state) => state.user.totalScore;
 export const getToday = (state) => state.user.today;
 export const getThisWeek = (state) => state.user.thisWeek;
+export const getSelectedPlants = (state) => state.user.today.dailyPlants;
 
 //action types
 const ADD_INITIAL_SCORE = "user/addInitialScore";

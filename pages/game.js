@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 import styles from "../styles/Game.module.css";
-import { getDifficulty } from "../store/game";
-import { getPlayedToday } from "../store/game";
+import { getDifficulty, getPlayedToday } from "../store/game";
+
 import { filterPlantsByDifficulty } from "../utils/filterPlantsByDifficulty";
 
 import { Countdown } from "../components/Countdown";
