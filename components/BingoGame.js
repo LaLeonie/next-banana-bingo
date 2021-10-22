@@ -10,11 +10,11 @@ import { positionCalculator } from "../utils/positionCalculator";
 import { Timer } from "./Timer";
 import { ResultAlert } from "./ResultAlert";
 
-export const BingoGame = ({ plants }) => {
+export const BingoGame = ({ plants, selection, setSelection }) => {
   const dispatch = useDispatch();
 
   const [showTimer, setShowTimer] = useState(true);
-  const [selection, setSelection] = useState([]);
+
   const [showResult, setShowResult] = useState(false);
   const [playedToday, setPlayedToday] = useState(false);
 

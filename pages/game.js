@@ -26,9 +26,11 @@ export const getStaticProps = async () => {
 };
 
 export default function Game({ plants }) {
-  const [filteredPlants, setFilteredPlants] = useState([]);
   let difficultyLevel = useSelector(getDifficulty);
   const playedToday = useSelector(getPlayedToday);
+
+  const [filteredPlants, setFilteredPlants] = useState([]);
+  const [selection, setSelection] = useState([]);
 
   useEffect(() => {
     setFilteredPlants(
@@ -44,7 +46,11 @@ export default function Game({ plants }) {
         <title>The Game</title>
       </Head>
       <div className="main-content">
-        <GameBoard plants={filteredPlants} />
+        <GameBoard
+          selection={selection}
+          setSelection={setSelection}
+          plants={filteredPlants}
+        />
       </div>
       <div className="main-footer">
         <Link href="/result" passHref>
