@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import styles from "../styles/Game.module.css";
 
-import { changeGameStatus } from "../store/game";
 import { addInitialScore, addVictory, addSelectedPlants } from "../store/user";
 import { bingoLogic } from "../utils/bingoLogic";
 import { positionCalculator } from "../utils/positionCalculator";
@@ -16,7 +15,6 @@ export const BingoGame = ({ plants, selection, setSelection }) => {
   const [showTimer, setShowTimer] = useState(true);
 
   const [showResult, setShowResult] = useState(false);
-  const [playedToday, setPlayedToday] = useState(false);
 
   const endGame = () => {
     setShowResult(true);

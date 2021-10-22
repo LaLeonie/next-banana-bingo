@@ -1,16 +1,14 @@
 import { useEffect } from "react";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
-import styles from "../styles/Game.module.css";
-import { getDifficulty, getPlayedToday } from "../store/game";
+import { getDifficulty, getPlayedToday, changeGameStatus } from "../store/game";
+import { addSelectedPlants } from "../store/user";
 
 import { filterPlantsByDifficulty } from "../utils/filterPlantsByDifficulty";
 
-import { Countdown } from "../components/Countdown";
-import { BingoGame } from "../components/BingoGame";
 import { GameBoard } from "../components/GameBoard";
 
 export const getStaticProps = async () => {
@@ -26,6 +24,8 @@ export const getStaticProps = async () => {
 };
 
 export default function Game({ plants }) {
+  const dispatch = useDispatch();
+  const router = useRouter();
   let difficultyLevel = useSelector(getDifficulty);
   const playedToday = useSelector(getPlayedToday);
 
@@ -40,6 +40,12 @@ export default function Game({ plants }) {
     );
   }, []);
 
+  const handleClick = () => {
+    dispatch(addSelectedPlants(selection));
+    dispatch(changeGameStatus(true));
+    router.push("/result");
+  };
+
   return (
     <>
       <Head>
@@ -53,11 +59,13 @@ export default function Game({ plants }) {
         />
       </div>
       <div className="main-footer">
-        <Link href="/result" passHref>
-          <button disabled={playedToday} className="button--primary">
-            I&apos;m done
-          </button>
-        </Link>
+        <button
+          onClick={handleClick}
+          disabled={playedToday}
+          className="button--primary"
+        >
+          I&apos;m done
+        </button>
       </div>
     </>
   );
