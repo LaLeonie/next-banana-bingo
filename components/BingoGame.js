@@ -61,7 +61,7 @@ export const BingoGame = ({ plants, selection, setSelection }) => {
   return (
     <>
       {showTimer && <Timer endGame={endGame} />}
-      {showResult && <ResultAlert />}
+      {showResult && <ResultAlert selection={selection} />}
 
       <ul className={styles.game_board} onClick={handlePlantClick}>
         {plants &&

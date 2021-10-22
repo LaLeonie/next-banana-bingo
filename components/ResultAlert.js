@@ -5,9 +5,9 @@ import { useSelector } from "react-redux";
 import styles from "./../styles/Game.module.css";
 
 import { changeGameStatus } from "../store/game";
-import { getToday } from "../store/user";
+import { getToday, addExtraScore } from "../store/user";
 
-export const ResultAlert = () => {
+export const ResultAlert = ({ selection }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const { victory } = useSelector(getToday);
@@ -31,6 +31,7 @@ export const ResultAlert = () => {
 
     setTimeout(() => {
       dispatch(changeGameStatus(true));
+      dispatch(addExtraScore(selection.length));
     }, 3500);
   }, []);
 
