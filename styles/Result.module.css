@@ -1,0 +1,14 @@
+.result_message {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.header {
+  font-size: 5.5rem;
+}
+
+.question {
+  font-weight: 700;
+  margin-top: 2rem;
+  /* margin-bottom: auto; */
+}
