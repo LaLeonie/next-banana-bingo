@@ -30,7 +30,7 @@
   -webkit-backdrop-filter: blur(8px);
   overflow: scroll;
   padding: 25px 10px;
-  height: 45vh;
+  /* height: 45vh; */
   overflow: scroll;
 }
 
