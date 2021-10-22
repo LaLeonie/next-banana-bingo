@@ -268,3 +268,27 @@ button.selected {
 .plant_item img {
   margin: auto;
 }
+
+/* instructions page  */
+.instructions {
+  padding: 0 80px;
+}
+.instructions div,
+.instructions ul li {
+  font-size: 1.6rem;
+  color: #212d36;
+}
+
+.instructions div,
+.instructions ul {
+  margin-top: 0;
+  margin-bottom: 1.4rem;
+}
+
+.instructions ul {
+  list-style: none;
+}
+
+.instructions h2 {
+  margin-bottom: 2rem;
+}
