@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 import { getDifficulty, getPlayedToday, changeGameStatus } from "../store/game";
-import { addSelectedPlants } from "../store/user";
+import { addSelectedPlants, addExtraScore } from "../store/user";
 
 import { filterPlantsByDifficulty } from "../utils/filterPlantsByDifficulty";
 
@@ -42,8 +42,9 @@ export default function Game({ plants }) {
 
   const handleClick = () => {
     dispatch(addSelectedPlants(selection));
-    dispatch(changeGameStatus(true));
+    dispatch(addExtraScore(selection.length));
     router.push("/result");
+    dispatch(changeGameStatus(true));
   };
 
   return (
