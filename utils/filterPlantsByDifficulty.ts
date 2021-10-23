@@ -1,4 +1,15 @@
-export const filterPlantsByDifficulty = (plants, difficulty) => {
+interface PlantField {
+  Difficulty: string;
+}
+
+interface Plant {
+  fields: PlantField;
+}
+
+export const filterPlantsByDifficulty = (
+  plants: Plant[],
+  difficulty: string
+) => {
   if (difficulty === "easy") {
     return plants.filter((el) => el.fields.Difficulty === "easy");
   }
