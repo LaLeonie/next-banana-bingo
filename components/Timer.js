@@ -5,7 +5,7 @@ import ProgressBar from "react-customizable-progressbar";
 import { useCountdown } from "../hooks/useCountdown";
 
 export const Timer = ({ endGame }) => {
-  const total = 5;
+  const total = 20;
   const { display, count } = useCountdown(total, 1000);
 
   const getProgress = () => {

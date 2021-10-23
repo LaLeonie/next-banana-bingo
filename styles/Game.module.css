@@ -4,6 +4,8 @@
   grid-gap: 3px;
   grid-template-columns: repeat(5, 85px);
   grid-template-rows: repeat(5, 85px);
+  margin-left: auto;
+  margin-right: auto;
   padding: 0;
 }
 
@@ -38,7 +40,7 @@
 /* Timer component */
 .timer_container {
   position: absolute;
-  right: -250px;
+  right: 0;
   top: 0;
   text-align: center;
   font-size: 1rem;
@@ -71,7 +73,7 @@
   text-transform: uppercase;
   z-index: 1;
   width: 400px;
-  left: -200px;
+  /* left: -200px; */
 }
 
 .countdown_display {
