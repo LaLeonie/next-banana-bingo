@@ -10,7 +10,8 @@ import { getPlayedToday } from "../store/game";
 
 export default function Home() {
   const playedToday = useSelector(getPlayedToday);
-  const [showSettings, setShowSettings] = useState(false);
+  const [showSettings, setShowSettings] = useState<boolean>(false);
+
   return (
     <>
       <Head>
