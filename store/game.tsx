@@ -1,10 +1,13 @@
+import { RootState } from "../types/index";
+import { AnyAction } from "redux";
+
 export const initialState = {
   difficulty: "medium",
   playedToday: false,
   apiPlants: [],
 };
 
-export function gameReducer(state = initialState, action) {
+export function gameReducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case GAME_PLAYED:
       return {
@@ -30,9 +33,9 @@ export function gameReducer(state = initialState, action) {
 }
 
 //selectors
-export const getApiPlants = (state) => state.game.apiPlants;
-export const getPlayedToday = (state) => state.game.playedToday;
-export const getDifficulty = (state) => state.game.difficulty;
+export const getApiPlants = (state: RootState) => state.game.apiPlants;
+export const getPlayedToday = (state: RootState) => state.game.playedToday;
+export const getDifficulty = (state: RootState) => state.game.difficulty;
 
 //action types
 const GAME_PLAYED = "game/gamePlayed";
