@@ -1,4 +1,5 @@
-import { RootState } from "../types";
+import { RootState, Plant } from "../types";
+import { AnyAction } from "redux";
 
 export const initialState = {
   totalScore: 0,
@@ -16,7 +17,7 @@ export const initialState = {
   },
 };
 
-export function userReducer(state = initialState, action) {
+export function userReducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case ADD_INITIAL_SCORE:
       return {
@@ -94,17 +95,17 @@ const REMOVE_SELECTED_PLANT = "user/plantRemoved";
 const RESET_USER_STORE = "user/resetStore";
 
 //action creators
-export const addInitialScore = (score) => ({
+export const addInitialScore = (score: number) => ({
   type: ADD_INITIAL_SCORE,
   payload: score,
 });
 
-export const addExtraScore = (score) => ({
+export const addExtraScore = (score: number) => ({
   type: ADD_EXTRA_SCORE,
   payload: score,
 });
 
-export const subtractExtraScore = (score) => ({
+export const subtractExtraScore = (score: number) => ({
   type: SUBTRACT_EXTA_SCORE,
   payload: score,
 });
@@ -113,18 +114,18 @@ export const addVictory = () => ({
   type: ADD_VICTORY,
 });
 
-export const addSelectedPlants = (plants) => ({
+export const addSelectedPlants = (plants: Plant[]) => ({
   type: ADD_SELECTED_PLANTS,
   payload: plants,
 });
 
-export const removeSelectedPlant = (name) => ({
+export const removeSelectedPlant = (name: string) => ({
   type: REMOVE_SELECTED_PLANT,
   payload: name,
 });
 
-export const resetUserStore = () => {
-  return (dispatch) => {
-    dispatch({ type: RESET_USER_STORE });
-  };
-};
+// export const resetUserStore = () => {
+//   return (dispatch) => {
+//     dispatch({ type: RESET_USER_STORE });
+//   };
+// };

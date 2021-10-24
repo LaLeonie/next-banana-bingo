@@ -1,7 +1,5 @@
-import { RootState } from "../types/index";
+import { RootState, Plant } from "../types/index";
 import { AnyAction } from "redux";
-
-import { Plant } from "../types/index";
 
 export const initialState = {
   difficulty: "medium",
