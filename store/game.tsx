@@ -1,6 +1,8 @@
 import { RootState } from "../types/index";
 import { AnyAction } from "redux";
 
+import { Plant } from "../types/index";
+
 export const initialState = {
   difficulty: "medium",
   playedToday: false,
@@ -44,23 +46,23 @@ const DIFFICULTY_SET = "game/difficultySet";
 const RESET_GAME_STORE = "game/resetStore";
 
 //action creators
-export const changeGameStatus = (bool) => ({
+export const changeGameStatus = (bool: boolean) => ({
   type: GAME_PLAYED,
   payload: bool,
 });
 
-export const changePlants = (plants) => ({
+export const changePlants = (plants: Plant[]) => ({
   type: PLANTS_SET,
   payload: plants,
 });
 
-export const changeDifficulty = (difficulty) => ({
+export const changeDifficulty = (difficulty: string) => ({
   type: DIFFICULTY_SET,
   payload: difficulty,
 });
 
-export const resetUserStore = () => {
-  return (dispatch) => {
-    dispatch({ type: RESET_GAME_STORE });
-  };
-};
+// export const resetUserStore = () => {
+//   return (dispatch) => {
+//     dispatch({ type: RESET_GAME_STORE });
+//   };
+// };
