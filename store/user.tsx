@@ -1,3 +1,5 @@
+import { RootState } from "../types";
+
 export const initialState = {
   totalScore: 0,
   today: {
@@ -76,10 +78,11 @@ export function userReducer(state = initialState, action) {
 }
 
 //selectors
-export const getTotalScore = (state) => state.user.totalScore;
-export const getToday = (state) => state.user.today;
-export const getThisWeek = (state) => state.user.thisWeek;
-export const getSelectedPlants = (state) => state.user.today.dailyPlants;
+export const getTotalScore = (state: RootState) => state.user.totalScore;
+export const getToday = (state: RootState) => state.user.today;
+export const getThisWeek = (state: RootState) => state.user.thisWeek;
+export const getSelectedPlants = (state: RootState) =>
+  state.user.today.dailyPlants;
 
 //action types
 const ADD_INITIAL_SCORE = "user/addInitialScore";
