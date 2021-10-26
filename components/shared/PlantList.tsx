@@ -1,8 +1,18 @@
 import React from "react";
 
 import PlantItem from "./PlantItem";
+import { Plant } from "../../types/index";
 
-const PlantList = ({
+type PlantListProps = {
+  selectable: boolean;
+  narrow: boolean;
+  plants: Plant[];
+  displayName: boolean;
+  selected: boolean;
+  handlePlanItemClick: Function;
+};
+
+const PlantList: React.FC<PlantListProps> = ({
   selectable,
   narrow,
   plants,
@@ -10,7 +20,6 @@ const PlantList = ({
   selected,
   handlePlanItemClick,
 }) => {
-
   return (
     <ul className={`plant_list ${narrow ? "plant_list--narrow" : ""}`}>
       {plants &&
