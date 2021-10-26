@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import Head from "next/head";
+import { GetStaticProps } from "next";
 
 import styles from "../styles/Tracker.module.css";
 import {
@@ -13,10 +14,11 @@ import {
 } from "../store/user";
 import { getPlayedToday } from "../store/game";
 
+import { Plant } from "../types";
 import { FilterPanel } from "../components/FilterPanel";
 import PlantList from "../components/shared/PlantList";
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
     `https://api.airtable.com/v0/apprXnCLMqQbaOEvK/Table%201?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
   );
@@ -40,7 +42,12 @@ export default function Tracker({ apiPlants }) {
   let [fruitCheck, setFruitCheck] = useState(true);
   let [vegCheck, setVegCheck] = useState(true);
 
-  const getFilteredPlants = (plants, color, fruit, veg) => {
+  const getFilteredPlants = (
+    plants: Plant[],
+    color: string,
+    fruit: boolean,
+    veg: boolean
+  ) => {
     let displayPlants = plants.filter(
       (obj) => dailyPlants.findIndex((el) => el.id === obj.id) === -1
     );

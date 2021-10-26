@@ -1,4 +1,25 @@
-export interface Plant {}
+interface Image {
+  id: string;
+  url: string;
+  filename: string;
+  size: number;
+  type: string;
+  width: number;
+  height: number;
+}
+
+export interface Plant {
+  fields: {
+    Color: "Green" | "Yellow" | "Red" | "Orange" | "Purple" | "Brown" | "Blue";
+    Type: "Fruit" | "Veg";
+    Name: string;
+    FunFact: string;
+    Image: Image[];
+    Seasonality: string[];
+    Vitamins: string[];
+    Difficulty: "hard" | "medium" | "easy";
+  };
+}
 
 interface Today {
   initialScore: number;
