@@ -12,7 +12,6 @@ import {
   subtractExtraScore,
   getToday,
 } from "../store/user";
-import { getPlayedToday } from "../store/game";
 
 import { Plant } from "../types";
 import { FilterPanel } from "../components/FilterPanel";
@@ -35,12 +34,12 @@ export default function Tracker({ apiPlants }) {
   const { dailyPlants } = useSelector(getToday);
 
   const colors = Array.from(
-    new Set(apiPlants.map((plant) => plant.fields.Color))
+    new Set(apiPlants.map((plant: Plant) => plant.fields.Color))
   );
 
-  let [color, setColor] = useState("");
-  let [fruitCheck, setFruitCheck] = useState(true);
-  let [vegCheck, setVegCheck] = useState(true);
+  let [color, setColor] = useState<string>("");
+  let [fruitCheck, setFruitCheck] = useState<boolean>(true);
+  let [vegCheck, setVegCheck] = useState<boolean>(true);
 
   const getFilteredPlants = (
     plants: Plant[],
@@ -60,9 +59,9 @@ export default function Tracker({ apiPlants }) {
     );
   };
 
-  const handlePlanItemClick = (e) => {
+  const handlePlanItemClick = (e: Event & { target: Element }) => {
     let node = e.target.parentNode.parentNode;
-    let plantName;
+    let plantName: string;
     if (e.target.nodeName === "LI") {
       node = e.target;
     }

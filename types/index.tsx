@@ -9,6 +9,7 @@ interface Image {
 }
 
 export interface Plant {
+  id: string;
   fields: {
     Color: "Green" | "Yellow" | "Red" | "Orange" | "Purple" | "Brown" | "Blue";
     Type: "Fruit" | "Veg";
