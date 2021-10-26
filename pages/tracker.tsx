@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import Head from "next/head";
 import { GetStaticProps } from "next";
+import { MouseEvent } from "react";
 
 import styles from "../styles/Tracker.module.css";
 import {
@@ -17,6 +18,10 @@ import { Plant } from "../types";
 import { FilterPanel } from "../components/FilterPanel";
 import PlantList from "../components/shared/PlantList";
 
+type TrackerProps = {
+  apiPlants: Plant[];
+};
+
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
     `https://api.airtable.com/v0/apprXnCLMqQbaOEvK/Table%201?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
@@ -29,7 +34,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function Tracker({ apiPlants }) {
+const Tracker: React.FC<TrackerProps> = ({ apiPlants }) => {
   const dispatch = useDispatch();
   const { dailyPlants } = useSelector(getToday);
 
@@ -59,7 +64,7 @@ export default function Tracker({ apiPlants }) {
     );
   };
 
-  const handlePlanItemClick = (e: Event & { target: Element }) => {
+  const handlePlanItemClick = (e: React.MouseEvent<HTMLElement>) => {
     let node = e.target.parentNode.parentNode;
     let plantName: string;
     if (e.target.nodeName === "LI") {
@@ -129,4 +134,6 @@ export default function Tracker({ apiPlants }) {
       </div>
     </>
   );
-}
+};
+
+export default Tracker;
